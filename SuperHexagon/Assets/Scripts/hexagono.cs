@@ -6,13 +6,17 @@ public class hexagono : MonoBehaviour
 {
     [SerializeField]
     private float _velocidade = 8f;
-    // Start is called before the first frame update
+
+    SpriteRenderer m_SpriteRenderer;
+
     void Start()
     {
         transform.Rotate(new Vector3(1,1,Random.Range(0f,360f)));
+        
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_SpriteRenderer.color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.localScale -= Vector3.one * _velocidade * Time.deltaTime;
