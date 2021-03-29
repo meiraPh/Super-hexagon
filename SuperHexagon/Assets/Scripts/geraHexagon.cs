@@ -18,6 +18,7 @@ public class geraHexagon : MonoBehaviour
 
     public void geraHexagono()
     {
-        Instantiate(_hexagono);        
+        FindObjectOfType<audioManager>().Play("Theme");
+        Instantiate(_hexagono);
     }
 }

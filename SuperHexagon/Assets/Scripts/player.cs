@@ -14,8 +14,9 @@ public class player : MonoBehaviour
         transform.RotateAround(Vector3.zero, Vector3.forward, lado * _velocidade * Time.deltaTime * -1); 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)//Player dies
     {
+        FindObjectOfType<audioManager>().Play("PlayerDeath");
         SceneManager.LoadScene(0);
     } 
 }

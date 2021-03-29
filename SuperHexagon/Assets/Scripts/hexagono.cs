@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class hexagono : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class hexagono : MonoBehaviour
 
     SpriteRenderer m_SpriteRenderer;
 
+
     void Start()
-    {
+    {   
         transform.Rotate(new Vector3(1,1,Random.Range(0f,360f)));
         
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -22,6 +24,8 @@ public class hexagono : MonoBehaviour
         transform.localScale -= Vector3.one * _velocidade * Time.deltaTime;
 
         if(transform.localScale.y <= 0.2){
+            FindObjectOfType<audioManager>().Play("Pontuation");
+            pontDisplay.pontuation++;
             Destroy(gameObject);
         }
     }
